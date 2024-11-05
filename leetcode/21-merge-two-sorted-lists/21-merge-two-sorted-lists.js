@@ -21,6 +21,18 @@ var mergeTwoLists = function(list1, list2) {
     
     for (let i = 0; i < list1.length + list2.length; i++) {
         
+        if (l == list1.length) {
+            res.push(list2[r]);
+            r++;
+            continue;
+        }
+        
+        if (r == list2.length) {
+            res.push(list1[l]);
+            l++;
+            continue;
+        }
+
         if (list1[l] <= list2[r]) {
             res.push(list1[l]);
             l++;
@@ -35,3 +47,7 @@ var mergeTwoLists = function(list1, list2) {
 }
 
 console.log(mergeTwoLists([2, 3, 5], [2, 3, 4]));
+
+console.log(mergeTwoLists([], []));
+
+console.log(mergeTwoLists([], [5]));
