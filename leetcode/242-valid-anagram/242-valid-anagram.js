@@ -4,36 +4,24 @@ var isAnagram = function(s, t) {
         return false;
     }
 
-    if (checkOccurance(s, t) == false) {
-        return false;
-    }
-    
-    return checkOccurance(t, s);
 };
 
-
-let checkOccurance = (s, t) => {
-    let anagram = true;
+let countChars = (s) => {
+    
+    let charCount = new Map();
 
     for (let i = 0; i < s.length; i++) {
-        let occur = false;
-
-        for (let j = 0; j < t.length; j++) {
-
-            if (s[i] == t[j]) {
-                occur = true;
-                break;
-            }
+        
+        if (charCount.get(s[i]) == undefined) {
+            charCount.set(s[i], 1);
         }
-
-        if (!occur) {
-            anagram = false;
-            break;
+        else {
+            charCount.set(s[i], charCount.get(s[i]) + 1);
         }
     }
+}
 
-    return anagram;
-};
+
 
 console.log(isAnagram("anagram", "nagaram"));
 
