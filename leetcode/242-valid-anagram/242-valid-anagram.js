@@ -1,9 +1,20 @@
 var isAnagram = function(s, t) {
-    
+
     if (s.length !== t.length) {
         return false;
     }
 
+    let x = countChars(s);
+    let y = countChars(t);
+
+    for (const k of x.keys()) {
+
+        if (x.get(k) !== y.get(k)) {
+            return false;
+        }
+    }
+
+    return true;
 };
 
 let countChars = (s) => {
@@ -19,9 +30,9 @@ let countChars = (s) => {
             charCount.set(s[i], charCount.get(s[i]) + 1);
         }
     }
+
+    return charCount;
 }
-
-
 
 console.log(isAnagram("anagram", "nagaram"));
 
