@@ -55,7 +55,7 @@ var mergeTwoLists = function(list1, list2) {
         console.log(l, r);
     }  
     
-    return head;
+    return head.next;
 }
 
 console.log(mergeTwoLists([2, 3, 5], [2, 3, 4]));
