@@ -12,38 +12,50 @@ let y = [1, 2, 3];
 // l = 3, r = 1, [3, 4, 4, 5, 5]
 // l = 3, r = 2, [3, 4, 4, 5, 5, 6]
 // l = 3, r = 3
+ 
+function ListNode(val, next) {
+    this.val = (val===undefined ? 0 : val)
+    this.next = (next===undefined ? null : next)
+}
 
 var mergeTwoLists = function(list1, list2) {
     
-    let l = 0;
-    let r = 0;
-    let res = [];
+    let l = list1;
+    let r = list2;
+    let res = new ListNode(-1000, undefined);
+    let head = res;
     
-    for (let i = 0; i < list1.length + list2.length; i++) {
+    while (l !== null && r !== null) {
         
-        if (l == list1.length) {
-            res.push(list2[r]);
-            r++;
+        if (l == null) {
+            res.next = new ListNode(r.val, undefined);
+            res = res.next;
+            r = r.next;
             continue;
         }
         
-        if (r == list2.length) {
-            res.push(list1[l]);
-            l++;
+        if (r == null) {
+            res.next = new ListNode(l.val, undefined);
+            res = res.next;
+            l = l.next;
             continue;
         }
 
-        if (list1[l] <= list2[r]) {
-            res.push(list1[l]);
-            l++;
+        if (l.val <= r.val) {
+            res.next = new ListNode(l.val, undefined);
+            res = res.next;
+            l = l.next;
         }
         else {
-            res.push(list2[r]);
-            r++;
-        }      
-    }  
+            res.next = new ListNode(r.val, undefined);
+            res = res.next;
+            r = r.next;
+        }
 
-    return res;
+        console.log(l, r);
+    }  
+    
+    return head;
 }
 
 console.log(mergeTwoLists([2, 3, 5], [2, 3, 4]));
