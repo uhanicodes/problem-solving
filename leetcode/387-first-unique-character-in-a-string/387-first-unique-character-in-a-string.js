@@ -22,11 +22,12 @@ var firstUniqChar = function(s) {
     for (let k of charCount.keys()) {
 
         if (charCount.get(k) == 1) {
-            result = i;
+            result = s.indexOf(k);
             break;
         }
         else {
             result = -1;
+            break;
         }
     }
     
