@@ -27,7 +27,6 @@ var firstUniqChar = function(s) {
         }
         else {
             result = -1;
-            break;
         }
     }
     
