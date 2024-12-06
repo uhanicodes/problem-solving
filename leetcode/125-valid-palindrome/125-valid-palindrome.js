@@ -1,20 +1,27 @@
 var isPalindrome = function(s) {
     let newString = removeNonAlphanumeric(s);
-    return newString;
-}
+    let reverseString = reverseString(newString);
+
+    if(newString == reverseString) {
+        return true;
+    }
+    else {
+        return false;
+    }
+};
 
 let removeNonAlphanumeric = (s) => {
         return s.replace(/[^a-zA-Z0-9]/g, '');
 }
 
-function reverseString(str) {
-    var newString = "";
+let reverseString = (str) => {
+    var newString1 = "";
     for (var i = str.length - 1; i >= 0; i--) {
-        newString += str[i];
+        newString1 += str[i];
     }
-    return newString;
+    return newString1;
 }
 
 console.log(isPalindrome("A man, a plan, a canal: Panama"));
 
-console.log(reverseString(isPalindrome("A man, a plan, a canal: Panama")));
+// console.log(reverseString(isPalindrome("A man, a plan, a canal: Panama")));
