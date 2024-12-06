@@ -1,8 +1,8 @@
 var isPalindrome = function(s) {
     let newString = removeNonAlphanumeric(s);
-    let reverseString = reverseString(newString);
+    let reverseString1 = reverseString(newString);
 
-    if(newString == reverseString) {
+    if(newString.toLowerCase() == reverseString1.toLowerCase()) {
         return true;
     }
     else {
@@ -24,4 +24,6 @@ let reverseString = (str) => {
 
 console.log(isPalindrome("A man, a plan, a canal: Panama"));
 
-// console.log(reverseString(isPalindrome("A man, a plan, a canal: Panama")));
+console.log(isPalindrome("race a car"));
+
+console.log(isPalindrome(""));
