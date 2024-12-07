@@ -1,18 +1,19 @@
 var fizzBuzz = function(n) {
     let arr = [];
 
-    for(let i = n - 1; i > -1; i--) {
-        arr[i] = n.toString();
-        n--;
+    for(let i = 0; i < n; i++) {
 
-        if (arr[i] % 3 == 0 && arr[i] % 5 == 0) {
+        if ((i + 1) % 3 == 0 && (i + 1) % 5 == 0) {
             arr[i] = "FizzBuzz";
         }
-        if (arr[i] % 3 == 0) {
+        else if ((i + 1) % 3 == 0) {
             arr[i] = "Fizz";
         }
-        if (arr[i] % 5 == 0) {
+        else if ((i + 1) % 5 == 0) {
             arr[i] = "Buzz";
+        }
+        else {
+            arr[i] = (i + 1).toString();
         }
     }
 
