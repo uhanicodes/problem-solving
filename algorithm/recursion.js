@@ -37,9 +37,10 @@ for (let i = 0; i < 10; i++) {
 }
 
 let printAllNumbers = (n, p) => {
-    
+    console.log(n, p);
+
     if (n == 0) {
-        console.log(p);
+        //console.log(p);
         return;
     }
 
@@ -48,4 +49,70 @@ let printAllNumbers = (n, p) => {
     }
 }
 
-printAllNumbers(4, "");
+// printAllNumbers(4, "");
+
+let printAllStrings = (n, p) => {
+    let s = ['A', 'B', 'X', 'Y'];
+    
+    if (n == 0) {
+        console.log(p);
+        return;
+    }
+
+    for (let i = 0; i < s.length; i++) {
+        printAllStrings(n - 1, p + s[i]);
+    }
+}
+
+printAllStrings(3, '');
+
+mergeSort = (arr) => {
+
+}
+
+let sum = (n, arr) => {
+
+    if (n == -1) {
+        return 0;
+    }
+     
+    return arr[n] + sum(n - 1, arr);
+}
+
+console.log(sum(2, [10, 15, 20]));
+
+let combination = (n, p) => {
+    let size = ["S", "M", "L", "XL"];
+    let color = ["R", "G", "B"];
+
+    if (n == 0) {
+        return;
+    }
+
+    for (let i = 0; i < size.length; i++) {
+        
+        for (let j = 0; j < color.length; j++){
+            combination(n - 1, p + color[j]);
+        }
+    }
+}
+
+console.log(combination(2, ''));
+
+let reverseArray = (n) => {
+    let arr = [];
+
+    if (n == 0) {
+        return;
+    }
+    
+    for (let i = 0; i < n; i++) {
+        arr[i] = (i + 1);
+    }
+
+    arr[n - 1] = arr[0]
+    reverseArray(n - 2);
+    return arr;
+}
+
+console.log(reverseArray(10));
