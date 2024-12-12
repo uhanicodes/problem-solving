@@ -99,20 +99,10 @@ let combination = (n, p) => {
 
 console.log(combination(2, ''));
 
-let reverseArray = (n) => {
-    let arr = [];
+let reverseArray = (arr, n) => {
 
-    if (n == 0) {
-        return;
-    }
-    
-    for (let i = 0; i < n; i++) {
-        arr[i] = (i + 1);
-    }
-
-    arr[n - 1] = arr[0]
-    reverseArray(n - 2);
-    return arr;
+    let array = reverseArray(arr, n - 1);
+    array.push(arr[arr.length - n]);
 }
 
-console.log(reverseArray(10));
+console.log(reverseArray([12, 30, 25], 3));
