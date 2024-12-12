@@ -100,9 +100,14 @@ let combination = (n, p) => {
 console.log(combination(2, ''));
 
 let reverseArray = (arr, n) => {
+    console.log(n);
 
     let array = reverseArray(arr, n - 1);
     array.push(arr[arr.length - n]);
+
+    if (n = 1) {
+        return array;
+    }
 }
 
 console.log(reverseArray([12, 30, 25], 3));
