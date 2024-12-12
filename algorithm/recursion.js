@@ -102,12 +102,14 @@ console.log(combination(2, ''));
 let reverseArray = (arr, n) => {
     console.log(n);
 
+    if (n == 1) {
+        return [arr[arr.length - n]];
+    }
+
     let array = reverseArray(arr, n - 1);
     array.push(arr[arr.length - n]);
-
-    if (n = 1) {
-        return array;
-    }
+    
+    return array;
 }
 
-console.log(reverseArray([12, 30, 25], 3));
+console.log(reverseArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 10));
