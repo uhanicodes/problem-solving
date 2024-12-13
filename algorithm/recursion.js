@@ -86,18 +86,27 @@ let combination = (n, p) => {
     let color = ["R", "G", "B"];
 
     if (n == 0) {
+        console.log(p);
+
         return;
     }
 
-    for (let i = 0; i < size.length; i++) {
-        
-        for (let j = 0; j < color.length; j++){
-            combination(n - 1, p + color[j]);
+    if (n == 2) {
+
+        for (let i = 0; i < size.length; i++) {
+            combination(n - 1, p + size[i]);
+        }
+    }
+
+    if (n == 1) {
+
+        for( let i = 0; i < color.length; i++) {
+            combination(n - 1, p + color[i]);
         }
     }
 }
 
-console.log(combination(2, ''));
+combination(2, '');
 
 let reverseArray = (arr, n) => {
     console.log(n);
@@ -112,4 +121,4 @@ let reverseArray = (arr, n) => {
     return array;
 }
 
-console.log(reverseArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 10));
+// console.log(reverseArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 10));
