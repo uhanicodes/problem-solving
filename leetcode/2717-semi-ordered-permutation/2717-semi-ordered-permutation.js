@@ -23,4 +23,4 @@ var semiOrderedPermutation = function(nums) {
     return swap;    
 };
 
-console.log(semiOrderedPermutation([2, 3, 1, 4]))
+console.log(semiOrderedPermutation([2, 4, 1, 3]))
