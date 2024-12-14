@@ -12,9 +12,13 @@ var semiOrderedPermutation = function(nums) {
             swap += i;
         }
 
-        if (nums[i] == n) {
-            swap += n - 1 - i;
+        if (nums.indexOf(1) < nums.indexOf(n) && nums[i] == n) {
+            swap += n - i - 1;
         }
+
+        else if(nums.indexOf(1) > nums.indexOf(n) && nums[i] ==n) {
+            swap += n - i - 2;
+        } 
     }
     
     return swap;    
