@@ -1,6 +1,4 @@
 var semiOrderedPermutation = function(nums) {
-    let swap1 = 0;
-    let swap2 = 0;
     let swap = 0;
     let n = nums.length;
 
@@ -10,16 +8,15 @@ var semiOrderedPermutation = function(nums) {
 
     for (let i = 0; i < n; i++) {
         
-        if(nums[i] == 1) {
-            swap1 = i;
-            swap = swap + swap1;
+        if (nums[i] == 1) {
+            swap += i;
         }
 
-        if(nums[i] == n) {
-            swap2 = n - 1 - i;
-            swap = swap + swap2;
+        if (nums[i] == n) {
+            swap += n - 1 - i;
         }
     }
+    
     return swap;    
 };
 
