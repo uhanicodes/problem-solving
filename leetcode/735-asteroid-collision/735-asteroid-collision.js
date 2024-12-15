@@ -41,10 +41,11 @@ var asteroidCollision = function(asteroids) {
                 break;
             }
         }
+        return asteroids;
     }
 
     return asteroids;
     
 };
 
-console.log(asteroidCollision([10, 2, -5]));
+console.log(asteroidCollision([10, -5, 2]));
