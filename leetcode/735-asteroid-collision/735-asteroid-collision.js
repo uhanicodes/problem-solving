@@ -2,11 +2,7 @@ var asteroidCollision = function(asteroids) {
 
     for (let i = 0; i < asteroids.length; i++) {
 
-        if (asteroids[i] !== -n) {
-            return asteroids;
-        }
-
-        if (asteroids[i] == -n && (asteroids[i - 1] || asteroids[i + 1]) !== -n) {
+        if (asteroids[i] < 0 && (asteroids[i - 1] || asteroids[i + 1]) >= 0) {
 
             if(Math.abs(asteroids[i]) == Math.abs(asteroids[i + 1])) {
                 asteroids.splice(i, 1);
@@ -38,4 +34,4 @@ var asteroidCollision = function(asteroids) {
     
 };
 
-console.log(asteroidCollision([5, 10, -5]));
+console.log(asteroidCollision([10, 2, -5]));
