@@ -9,8 +9,7 @@ var asteroidCollision = function(asteroids) {
                 if(Math.abs(asteroids[i]) == Math.abs(asteroids[i + 1])) {
                     asteroids.splice(i, 2);
                 }
-
-                if(Math.abs(asteroids[i]) < Math.abs(asteroids[i + 1])) {
+                else if(Math.abs(asteroids[i]) < Math.abs(asteroids[i + 1])) {
                     asteroids.splice(i, 1);
                 }
                 else {
@@ -19,24 +18,39 @@ var asteroidCollision = function(asteroids) {
             }
         }
 
-        console.log(asteroids);
+        //console.log(asteroids);
 
-        let sameSign = true;
+        //chek if all negative elements are on left and all positive element are on right.
+        //[-2, -1, 1, 2]
+        //[1, 2, 3]
+        //[-1, -2, -3]
+        let indexFirstPositive = -1;
 
-        for (let i = 0; i < asteroids.length - 1; i++) {
+        for (let i = 0; i < asteroids.length; i++) {
 
-            
-            if (asteroids[i] >= 0 && asteroids[i + 1] < 0) {
-                sameSign = false;
-                break;
-            }
-            else if (asteroids[i] < 0 && asteroids[i + 1] >= 0) {
-                sameSign = false;
+            if (asteroids[i] >= 0) {
+                indexFirstPositive = i;
                 break;
             }
         }
 
-        if (sameSign == true) {
+        if (indexFirstPositive >= 0) {
+            let positive = true;
+
+            for (let i = indexFirstPositive + 1; i < asteroids.length; i++) {
+
+                if (asteroids[i] < 0) {
+                    positive = false;
+                    break;
+                }
+            }
+
+            if (positive == true) {
+                return asteroids;
+            }
+        }
+
+        if (indexFirstPositive == -1) {
             return asteroids;
         }
     }
@@ -45,4 +59,5 @@ var asteroidCollision = function(asteroids) {
     
 };
 
-console.log(asteroidCollision([-2, -1, 1, 2]));
+//console.log(asteroidCollision([-5, 2, 10]));
+console.log(asteroidCollision([1,-1,-2,-2]));
