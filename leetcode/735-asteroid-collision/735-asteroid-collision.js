@@ -32,20 +32,28 @@ var asteroidCollision = function(asteroids) {
             }
         }
 
+        let sameSign = true;
+
         for (let i = 0; i < asteroids.length; i++) {
             
             if (asteroids[i] >= 0 && asteroids[i + 1] < 0) {
-                break;
+                sameSign = false;
             }
             else if (asteroids[i] < 0 && asteroids[i + 1] >= 0) {
-                break;
+                sameSign = false;
             }
         }
-        return asteroids;
+
+        if (sameSign == true) {
+            return asteroids;
+        }
+        else {
+            
+        }
     }
 
     return asteroids;
     
 };
 
-console.log(asteroidCollision([10, -5, 2]));
+console.log(asteroidCollision([-5, 2, 10]));
