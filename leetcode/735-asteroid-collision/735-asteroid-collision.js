@@ -34,21 +34,21 @@ var asteroidCollision = function(asteroids) {
 
         let sameSign = true;
 
-        for (let i = 0; i < asteroids.length; i++) {
+        for (let i = 0; i < asteroids.length - 1; i++) {
+
             
             if (asteroids[i] >= 0 && asteroids[i + 1] < 0) {
                 sameSign = false;
+                break;
             }
             else if (asteroids[i] < 0 && asteroids[i + 1] >= 0) {
                 sameSign = false;
+                break;
             }
         }
 
         if (sameSign == true) {
             return asteroids;
-        }
-        else {
-            
         }
     }
 
