@@ -19,7 +19,7 @@ var asteroidCollision = function(asteroids) {
             }
         }
 
-        //console.log(asteroids);
+        console.log(asteroids);
 
         let sameSign = true;
 
@@ -45,4 +45,4 @@ var asteroidCollision = function(asteroids) {
     
 };
 
-console.log(asteroidCollision([-2,-1,1,2]));
+console.log(asteroidCollision([-2, -1, 1, 2]));
