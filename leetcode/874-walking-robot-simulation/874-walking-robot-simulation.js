@@ -35,6 +35,13 @@ var robotSim = function(commands, obstacles) {
         }
         else if (commands[i] > 0) {
             // move forward commands[i] times from the current position, once at a time.
+            if (direction == "N") {
+                y = commands[i]//increase y once at a time;
+
+                if (x == obstacles[0] && y == obstacles[1]) {
+                    break;
+                }
+            }
         }
 
     }
