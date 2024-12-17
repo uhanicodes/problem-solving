@@ -6,7 +6,18 @@ var robotSim = function(commands, obstacles) {
 
         if (commands[i] == -1) {
             // turn 90 degrees right.
-            direction = "E";
+            if (direction == "N") {
+                direction = "E";
+            }
+            else if (direction == "E") {
+                direction = "S";
+            }
+            else if (direction == "S") {
+                direction = "W";
+            }
+            else if (direction == "W") {
+                direction = "N"
+            }
         }
         else if (commands[i] == -2) {
             // turn 90 degrees left.
