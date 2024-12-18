@@ -1,6 +1,7 @@
 var robotSim = function(commands, obstacles) {
     let x = 0, y = 0;
     let direction = "N";
+    let distance = x
 
     for (let i = 0; i < commands.length; i++) {
 
@@ -38,16 +39,16 @@ var robotSim = function(commands, obstacles) {
             for (let j = 1; j < commands[i] + 1; j++) {
                     
                 if (direction == "N") {
-                    y = j;
+                    y = y + j;
                 }
                 else if (direction == "E") {
-                    x = j;
+                    x = x + j;
                 }
                 else if (direction == "S") {
-                    y = -j;   
+                    y = y -j;   
                 }
                 else if (direction == "W") {
-                    x = -j;
+                    x = y -j;
                 }
 
                 if (x == obstacles[0] && y == obstacles[1]) {
