@@ -35,7 +35,7 @@ var robotSim = function(commands, obstacles) {
             }
         }
         else if (commands[i] > 0) {
-            // move forward commands[i] times from the current position, once at a time.
+            
             for (let j = 1; j < commands[i] + 1; j++) {
                     
                 if (direction == "N") {
@@ -50,9 +50,13 @@ var robotSim = function(commands, obstacles) {
                 else if (direction == "W") {
                     x--;
                 }
-
-                if (x == obstacles[0] && y == obstacles[1]) {
-                    break;
+                for (let k = 0; k < obstacles.length; k++) {
+                    
+                    if (x == obstacles[k][0] && y == obstacles[k][1]) {
+                        x = ;
+                        y = ;
+                        break;
+                    }
                 }
             }
             
@@ -65,4 +69,4 @@ var robotSim = function(commands, obstacles) {
     return distance;
 };
 
-console.log(robotSim([4,-1,4,-2,4], []));
+console.log(robotSim([4,-1,4,-2,4], [2, 4]));
