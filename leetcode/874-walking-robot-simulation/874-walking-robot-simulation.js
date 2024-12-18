@@ -45,10 +45,10 @@ var robotSim = function(commands, obstacles) {
                     x = x + j;
                 }
                 else if (direction == "S") {
-                    y = (-1) * (y + j);   
+                    y = -(y + j);   
                 }
                 else if (direction == "W") {
-                    x = (-1) * (x + j);
+                    x = -(x + j);
                 }
 
                 if (x == obstacles[0] && y == obstacles[1]) {
