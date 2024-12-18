@@ -1,7 +1,7 @@
 var robotSim = function(commands, obstacles) {
     let x = 0, y = 0;
     let direction = "N";
-    let distance = x
+    let distance = (x * x) + (y * y);
 
     for (let i = 0; i < commands.length; i++) {
 
@@ -45,10 +45,10 @@ var robotSim = function(commands, obstacles) {
                     x = x + j;
                 }
                 else if (direction == "S") {
-                    y = -(y + j);   
+                    y = (-1) * (y + j);   
                 }
                 else if (direction == "W") {
-                    x = -(x + j);
+                    x = (-1) * (x + j);
                 }
 
                 if (x == obstacles[0] && y == obstacles[1]) {
@@ -58,6 +58,8 @@ var robotSim = function(commands, obstacles) {
         }
 
     }
+
+    return distance;
 };
 
 console.log(robotSim([4,-1,3], []));
