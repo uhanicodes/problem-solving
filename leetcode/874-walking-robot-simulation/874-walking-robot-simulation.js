@@ -19,7 +19,7 @@ var robotSim = function(commands, obstacles) {
             }
         }
         else if (commands[i] == -2) {
-        
+            
             if (direction == "N") {
                 direction = "W";
             }
@@ -35,20 +35,19 @@ var robotSim = function(commands, obstacles) {
         }
         else if (commands[i] > 0) {
             // move forward commands[i] times from the current position, once at a time.
-            for (let i = 1; i < commands[i] + 1; i++) {
+            for (let j = 1; j < commands[i] + 1; j++) {
                     
                 if (direction == "N") {
-                    y = i;
-
-                    if (x == obstacles[0] && y == obstacles[1]) {
-                        break;
-                    }
+                    y = j;
                 }
                 else if (direction == "E") {
-
+                    x = j;
                 }
                 else if (direction == "S") {
-                    
+                    y = -j;   
+                }
+                else if (direction == "W") {
+                    x = -j;
                 }
             }
         }
