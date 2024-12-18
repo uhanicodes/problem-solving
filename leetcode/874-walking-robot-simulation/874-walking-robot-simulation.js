@@ -49,6 +49,10 @@ var robotSim = function(commands, obstacles) {
                 else if (direction == "W") {
                     x = -j;
                 }
+
+                if (x == obstacles[0] && y == obstacles[1]) {
+                    break;
+                }
             }
         }
 
