@@ -1,7 +1,7 @@
 var robotSim = function(commands, obstacles) {
     let x = 0, y = 0;
     let direction = "N";
-    let distance = (x * x) + (y * y);
+    let distance = 0;
 
     for (let i = 0; i < commands.length; i++) {
 
@@ -55,10 +55,11 @@ var robotSim = function(commands, obstacles) {
                     break;
                 }
             }
+            console.log(x, y);
         }
 
     }
-
+    distance = (x * x) + (y * y);
     return distance;
 };
 
