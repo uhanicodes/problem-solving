@@ -37,6 +37,13 @@ var robotSim = function(commands, obstacles) {
         else if (commands[i] > 0) {
             
             for (let j = 1; j < commands[i] + 1; j++) {
+
+                for (let k = 0; k < obstacles.length; k++) {
+                    
+                    if (x == obstacles[k][0] && y == obstacles[k][1]) {
+                        break;
+                    }
+                }
                     
                 if (direction == "N") {
                     y++;
@@ -49,14 +56,6 @@ var robotSim = function(commands, obstacles) {
                 }
                 else if (direction == "W") {
                     x--;
-                }
-                for (let k = 0; k < obstacles.length; k++) {
-                    
-                    if (x == obstacles[k][0] && y == obstacles[k][1]) {
-                        x = ;
-                        y = ;
-                        break;
-                    }
                 }
             }
             
