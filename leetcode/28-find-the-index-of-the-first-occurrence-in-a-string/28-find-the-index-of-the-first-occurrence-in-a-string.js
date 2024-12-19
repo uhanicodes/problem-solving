@@ -10,7 +10,6 @@
 // |2|3|4|5--i 
 
 var strStr = function(haystack, needle) {
-    let result = -1;
     
     for (let i = 0; i < haystack.length - needle.length + 1; i++) {
         let match = true;
@@ -24,12 +23,11 @@ var strStr = function(haystack, needle) {
         }
 
         if (match == true) {
-            result = i;
-            break;
+            return i;
         }
     }
 
-    return result;
+    return -1;
 };
 
 // haystack = "sadbutsad", needle = "sad"
@@ -46,36 +44,6 @@ let len = 3;
 // 0, 1, 2, 3, 4,...len - 1
 // s, s + 1, s + 2,...,s + len - 1 
 
-// for (let i = s; i < s + len; i++) {
-//     console.log(arr[i]);
-// }
-
-// var strStr = function(haystack, needle) {
-//     let result = -1;
-
-//     for (let j = 0; j < needle.length; j++) {
-//         let match = true;
-
-//         for (let i = j; i < j + needle.length; i++) {
-
-//             if (needle[j] == haystack[i]) {
-//                 match = true;
-//             }
-//             else{
-//                 match = false;
-//             }
-//         }
-
-//         if (match == true) {
-//             result = i;
-//         }
-//         else {
-//             result = -1;
-//         }
-//     }
-//     return result;
-// };
-
-// console.log(strStr('sadbutsad', 'sad'));
-// console.log(strStr('leetcode', 'leeto'));
-// console.log(strStr('leetcode','code'));
+for (let i = s; i < s + len; i++) {
+    console.log("num:" ,arr[i]);
+}
