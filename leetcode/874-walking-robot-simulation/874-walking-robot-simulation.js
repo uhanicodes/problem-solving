@@ -105,12 +105,11 @@ var robotSim = function(commands, obstacles) {
                         x--;
                     }
                 }
-                console.log(x, y);
             }
+            
             distance = (x * x) + (y * y);
             max = Math.max(max, distance);
         }
-
     }
     
     return max;
