@@ -36,17 +36,17 @@ var robotSim = function(commands, obstacles) {
         }
         else if (commands[i] > 0) {
             
-            for (let j = 1; j < commands[i] + 1; j++) {
+            for (let j = 1; j < (commands[i] + 1); j++) {
                 let isObstacle = false;
-
-                for (let k = 0; k < obstacles.length; k++) {
-                    
-                    if ((x + 1) == obstacles[k][0] && (y + 1) == obstacles[k][1]) {
-                        isObstacle = true;
-                    }
-                }
-
+                
                 if (direction == "N") {
+
+                    for (let k = 0; k < obstacles.length; k++) {
+                        
+                        if ((x + 1) == obstacles[k][0] && (y + 1) == obstacles[k][1]) {
+                            isObstacle = true;
+                        }
+                    }
 
                     if (isObstacle == true) {
                         break;
@@ -56,6 +56,12 @@ var robotSim = function(commands, obstacles) {
                     }
                 }
                 else if (direction == "E") {
+                    for (let k = 0; k < obstacles.length; k++) {
+                        
+                        if ((x + 1) == obstacles[k][0] && (y + 1) == obstacles[k][1]) {
+                            isObstacle = true;
+                        }
+                    }
 
                     if (isObstacle == true) {
                         break;
@@ -65,15 +71,27 @@ var robotSim = function(commands, obstacles) {
                     }
                 }
                 else if (direction == "S") {
+                    for (let k = 0; k < obstacles.length; k++) {
+                        
+                        if ((x + 1) == obstacles[k][0] && (y + 1) == obstacles[k][1]) {
+                            isObstacle = true;
+                        }
+                    }
 
                     if (isObstacle == true) {
                         break;
                     }
                     else {
                         y--;
-                    }
+                    }   
                 }
                 else if (direction == "W") {
+                    for (let k = 0; k < obstacles.length; k++) {
+                        
+                        if ((x + 1) == obstacles[k][0] && (y + 1) == obstacles[k][1]) {
+                            isObstacle = true;
+                        }
+                    }
 
                     if (isObstacle == true) {
                         break;
