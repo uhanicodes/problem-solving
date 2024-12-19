@@ -46,21 +46,41 @@ var robotSim = function(commands, obstacles) {
                     }
                 }
 
-                if (isObstacle == true) {
-                    break;
-                }
-                    
                 if (direction == "N") {
-                    y++;
+
+                    if (isObstacle == true) {
+                        break;
+                    }
+                    else {
+                        y++;
+                    }
                 }
                 else if (direction == "E") {
-                    x++;
+
+                    if (isObstacle == true) {
+                        break;
+                    }
+                    else {
+                        x++;
+                    }
                 }
                 else if (direction == "S") {
-                    y--;   
+
+                    if (isObstacle == true) {
+                        break;
+                    }
+                    else {
+                        y--;
+                    }
                 }
                 else if (direction == "W") {
-                    x--;
+
+                    if (isObstacle == true) {
+                        break;
+                    }
+                    else {
+                        x--;
+                    }
                 }
             }
             
