@@ -43,7 +43,7 @@ var robotSim = function(commands, obstacles) {
 
                     for (let k = 0; k < obstacles.length; k++) {
                         
-                        if ((x + 1) == obstacles[k][0] && (y + 1) == obstacles[k][1]) {
+                        if (x == obstacles[k][0] && (y + 1) == obstacles[k][1]) {
                             isObstacle = true;
                         }
                     }
@@ -58,7 +58,7 @@ var robotSim = function(commands, obstacles) {
                 else if (direction == "E") {
                     for (let k = 0; k < obstacles.length; k++) {
                         
-                        if ((x + 1) == obstacles[k][0] && (y + 1) == obstacles[k][1]) {
+                        if ((x + 1) == obstacles[k][0] && y == obstacles[k][1]) {
                             isObstacle = true;
                         }
                     }
@@ -73,7 +73,7 @@ var robotSim = function(commands, obstacles) {
                 else if (direction == "S") {
                     for (let k = 0; k < obstacles.length; k++) {
                         
-                        if ((x + 1) == obstacles[k][0] && (y + 1) == obstacles[k][1]) {
+                        if (x == obstacles[k][0] && (y + 1) == obstacles[k][1]) {
                             isObstacle = true;
                         }
                     }
@@ -88,7 +88,7 @@ var robotSim = function(commands, obstacles) {
                 else if (direction == "W") {
                     for (let k = 0; k < obstacles.length; k++) {
                         
-                        if ((x + 1) == obstacles[k][0] && (y + 1) == obstacles[k][1]) {
+                        if ((x + 1) == obstacles[k][0] && y == obstacles[k][1]) {
                             isObstacle = true;
                         }
                     }
@@ -100,6 +100,7 @@ var robotSim = function(commands, obstacles) {
                         x--;
                     }
                 }
+                console.log(x, y);
             }
             
             console.log(x, y);
