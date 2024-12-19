@@ -108,11 +108,7 @@ var robotSim = function(commands, obstacles) {
                 console.log(x, y);
             }
             distance = (x * x) + (y * y);
-            
-            if (distance > max) {
-                max = distance;
-            }
-            // console.log(x, y);
+            max = Math.max(max, distance);
         }
 
     }
@@ -120,4 +116,4 @@ var robotSim = function(commands, obstacles) {
     return max;
 };
 
-console.log(robotSim([1,-1,1,-1,1,-1,6], [[0, 0]]));
+console.log(robotSim([4, -1, 4, -2, 4], [[2, 4]]));
