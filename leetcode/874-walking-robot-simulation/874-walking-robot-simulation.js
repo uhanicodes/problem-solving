@@ -1,5 +1,4 @@
 var robotSim = function(commands, obstacles) {
-    let obstacles = [[-1, -1]];
     let x = 0, y = 0;
     let direction = "N";
     let distance = 0;
@@ -117,4 +116,4 @@ var robotSim = function(commands, obstacles) {
     return distance;
 };
 
-console.log(robotSim([4,-1,4,-2,4], [2, 4]));
+console.log(robotSim([4,-1,4,-2,4], [[2, 4]]));
