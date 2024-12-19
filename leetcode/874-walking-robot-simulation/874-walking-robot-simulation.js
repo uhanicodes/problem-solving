@@ -2,7 +2,7 @@ var robotSim = function(commands, obstacles) {
     let x = 0, y = 0;
     let direction = "N";
     let distance = 0;
-    let distances = [];
+    let max = 0;
 
     for (let i = 0; i < commands.length; i++) {
 
@@ -108,22 +108,16 @@ var robotSim = function(commands, obstacles) {
                 console.log(x, y);
             }
             distance = (x * x) + (y * y);
-            distances.push(distance);
+            
+            if (distance > max) {
+                max = distance;
+            }
             // console.log(x, y);
         }
 
-    }
-
-    let max = 0;
-
-    for (let i = 0; i < distances.length; i++) {
-        
-        if (distances[i] > max) {
-            max = distances[i];
-        }
     }
     
     return max;
 };
 
-console.log(robotSim([6, -1, -1, 6], [[0, 0]]));
+console.log(robotSim([1,-1,1,-1,1,-1,6], [[0, 0]]));
