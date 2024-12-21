@@ -3,6 +3,7 @@ var robotSim = function(commands, obstacles) {
     let direction = "N";
     let distance = 0;
     let max = 0;
+    let obstaclesMap = new Map();
 
     for (let i = 0; i < commands.length; i++) {
 
