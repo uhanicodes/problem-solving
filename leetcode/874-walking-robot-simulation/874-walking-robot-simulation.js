@@ -7,7 +7,7 @@ var robotSim = function(commands, obstacles) {
     let direction = "N";
     let distance = 0;
     let max = 0;
-    let rightTurn = new Map(["N", "E"], ["E", "S"], ["S", "W"], ["W", "N"]);
+    let rightTurn = new Map([["N", "E"], ["E", "S"], ["S", "W"], ["W", "N"]]);
     let obstaclesMap = new Map();
     
     for (let i = 0; i < obstacles.length; i++) {
