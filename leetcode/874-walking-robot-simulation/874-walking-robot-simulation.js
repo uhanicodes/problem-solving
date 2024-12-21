@@ -7,27 +7,19 @@ var robotSim = function(commands, obstacles) {
     let direction = "N";
     let distance = 0;
     let max = 0;
+    let rightTurn = new Map(["N", "E"], ["E", "S"], ["S", "W"], ["W", "N"]);
     let obstaclesMap = new Map();
     
     for (let i = 0; i < obstacles.length; i++) {
         obstaclesMap.set(hash(obstacles[i][0], obstacles[i][1]), true);
     }
-
+    
     for (let i = 0; i < commands.length; i++) {
 
         if (commands[i] == -1) {
-            if (direction == "N") {
-                direction = "E";
-            }
-            else if (direction == "E") {
-                direction = "S";
-            }
-            else if (direction == "S") {
-                direction = "W";
-            }
-            else if (direction == "W") {
-                direction = "N"
-            }
+            
+            direction = rightTurn.get(direction);
+            console.log(direction);
         }
         else if (commands[i] == -2) {
             
