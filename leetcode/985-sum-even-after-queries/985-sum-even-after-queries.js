@@ -8,17 +8,20 @@ var sumEvenAfterQueries = function(nums, queries) {
 
             if (queries[j][1] == i) {
                 nums[i] = nums[i] + queries[j][0];
+                console.log(nums);
                 
                 for (let k = 0; k < nums.length; k++) {
                     
                     if (nums[k] % 2 == 0) {
                         sumOfEven = sumOfEven + nums[i];
                     }
+                    nums.push(nums[k]);
                 }
+                sumOfEvenArray.push(sumOfEven);
+
+                console.log(sumOfEven);
             }
-        }
-        
-        sumOfEvenArray.push(sumOfEven);        
+        }  
     }
     return sumOfEvenArray;
 };
