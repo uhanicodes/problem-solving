@@ -8,7 +8,7 @@ var sumEvenAfterQueries = function(nums, queries) {
 
             if (queries[i][1] == j) {
                 nums[j] += queries[i][0];
-                // update the nums array for the next iteration;
+                // update the nums array with new j-th element for the next iteration;
             }
 
             if (nums[j] % 2 == 0) {
