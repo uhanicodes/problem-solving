@@ -17,6 +17,7 @@ var sumEvenAfterQueries = function(nums, queries) {
         }
 
         sumOfEvenArray.push(sumOfEven);
+        sumOfEven = 0;
     }
 
     return sumOfEvenArray;
