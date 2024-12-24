@@ -11,25 +11,19 @@ var sumEvenAfterQueries = function(nums, queries) {
 
     for (let i = 0; i < queries.length; i++) {
 
-        for (let j = 0; j < nums.length; j++) {
-
-            if (queries[i][1] == j) {
-
-                if (nums[j] % 2 == 0) {
-                    sumOfEven -= nums[j];
-                }
-
-                nums[j] += queries[i][0];
-
-                if (nums[j] % 2 == 0) {
-                    sumOfEven += nums[j];
-                }
-                sumOfEvenArray.push(sumOfEven);
-            }
+        if (nums[queries[i][1]] % 2 == 0) {
+            sumOfEven -= nums[queries[i][1]];
         }
+
+        nums[queries[i][1]] += queries[i][0];
+
+        if (nums[queries[i][1]] % 2 == 0) {
+            sumOfEven += nums[queries[i][1]];
+        }
+        sumOfEvenArray.push(sumOfEven);
     }
 
     return sumOfEvenArray;
 };
 
-console.log(sumEvenAfterQueries([1], [[4,0]]));
+console.log(sumEvenAfterQueries([1,2,3,4], [[1,0],[-3,1],[-4,0],[2,3]]));
