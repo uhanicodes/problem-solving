@@ -2,25 +2,34 @@ var sumEvenAfterQueries = function(nums, queries) {
     let sumOfEven = 0;
     let sumOfEvenArray = [];
 
+    for (let i = 0; i < nums.length; i++) {
+        
+        if (nums[i] % 2 == 0) {
+            sumOfEven += nums[i];
+        }
+    }
+
     for (let i = 0; i < queries.length; i++) {
 
         for (let j = 0; j < nums.length; j++) {
 
             if (queries[i][1] == j) {
-                nums[j] += queries[i][0];
-                // update the nums array with new j-th element for the next iteration;
-            }
 
-            if (nums[j] % 2 == 0) {
-                sumOfEven += nums[j];
+                if (nums[j] % 2 == 0) {
+                    sumOfEven -= nums[j];
+                }
+
+                nums[j] += queries[i][0];
+
+                if (nums[j] % 2 == 0) {
+                    sumOfEven += nums[j];
+                }
+                sumOfEvenArray.push(sumOfEven);
             }
         }
-
-        sumOfEvenArray.push(sumOfEven);
-        sumOfEven = 0;
     }
 
     return sumOfEvenArray;
 };
 
-console.log(sumEvenAfterQueries([1,2,3,4], [[1,0],[-3,1],[-4,0],[2,3]]))
+console.log(sumEvenAfterQueries([1], [[4,0]]));
