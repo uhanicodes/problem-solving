@@ -17,7 +17,7 @@ var findDiagonalOrder = function(mat) {
         }       
     }
 
-    for (let i = 1; i < mat.length; i++) {
+    for (let i = 0; i < mat.length - 1; i++) {
         console.log('i =',i);
         
         for (let k = mat.length - 1; k > i - 1; k--) {
