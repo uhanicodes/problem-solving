@@ -16,18 +16,21 @@ var findDiagonalOrder = function(mat) {
             }
         }
 
-        for (let k = mat.length - (i + 1); k > 0; k--) {
+        for (let k = 1; k < mat.length; k++) {
             
-            if ((mat.length - k) % 2) {
-                console.log(k, (mat.length - k));
+            if (i == 0) {
+                break;
+            }
+            else if (i % 2 == 0) {
+                console.log(k ,(mat.length - k));
             }
             else {
-                console.log((mat.length - k), k);
+                console.log((mat.length - k), k)
             }
         }
     }
 
-    return diagonalElements;
+      return diagonalElements;
 };
 
 //console.log(findDiagonalOrder([[1, 2, 3], [4, 5, 6], [7, 8, 9]]));
