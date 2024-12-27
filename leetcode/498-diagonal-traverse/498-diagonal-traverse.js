@@ -2,15 +2,18 @@ var findDiagonalOrder = function(mat) {
     let diagonalElements = [];    
     
     for (let i = 0; i < mat.length; i++) {
+        console.log('i =',i);
 
         for (let j = 0; j < i+1; j++) {
-            //console.log(j);
+            
 
             if (i % 2 == 0) {
-                diagonalElements.push(mat[i][i-i]);
+                console.log(i-j, j);
+                diagonalElements.push(mat[i-j][j]);                
             }
             else {
-                diagonalElements.push(mat[i-i][i]);
+                console.log(j, i-j);
+                diagonalElements.push(mat[j][i-j]);
             }
         }
     }
@@ -18,4 +21,6 @@ var findDiagonalOrder = function(mat) {
     return diagonalElements;
 };
 
-console.log(findDiagonalOrder([1, 2, 3], [4, 5, 6], [7, 8, 9]));
+console.log(findDiagonalOrder([[1, 2, 3], [4, 5, 6], [7, 8, 9]]));
+
+console.log(findDiagonalOrder([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]]));
