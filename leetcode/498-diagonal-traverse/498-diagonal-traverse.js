@@ -5,14 +5,15 @@ var findDiagonalOrder = function(mat) {
         console.log('i =',i);
 
         for (let j = 0; j < Math.min(i + 1, mat[i].length); j++) {
-                
+            let diff = Math.max(0, i - mat[i].length + 1);
+            
             if (i % 2 == 0) {
-                console.log(i-j, j);
-                diagonalElements.push(mat[i-j][j]);                
+                console.log(i-(j + diff), j + diff);
+                diagonalElements.push(mat[i-(j + diff)][j + diff]);                
             }
             else {
-                console.log(j, i-j);
-                diagonalElements.push(mat[j][i-j]);
+                console.log(j + diff, i-(j + diff));
+                diagonalElements.push(mat[j + diff][i-(j + diff)]);
             }
         }           
     }
