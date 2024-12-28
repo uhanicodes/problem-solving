@@ -5,7 +5,7 @@ var findDiagonalOrder = function(mat) {
         //console.log('i =',i);
         if (i < mat[i].length) {
             
-            for (let j = 0; j < i+1; j++) {
+            for (let j = 0; j < Math.min(i + 1, mat[i].length); j++) {
                 
                 if (i % 2 == 0) {
                     //console.log(i-j, j);
