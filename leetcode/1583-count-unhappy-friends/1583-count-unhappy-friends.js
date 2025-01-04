@@ -10,8 +10,10 @@ var unhappyFriends = function(n, preferences, pairs) {
             for (let k = 0; k < pairs.length; k++) {
 
                 for (let l = 0; l < pairs[k].length; l++) {
-
-                    if (pairs[k][l] )
+                    let x = pairs[k][0];
+                    let y = pairs[k][1];
+                    
+                    if (x)
                 }
             }
         }
