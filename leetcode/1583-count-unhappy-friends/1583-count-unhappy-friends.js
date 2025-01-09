@@ -21,6 +21,23 @@ var unhappyFriends = function(n, preferences, pairs) {
                     }
                 }
                 
+                let indexOfv, indexOfx;
+                
+                for (let k = 0; k < preferences[u].length; k++) {
+
+                    if (preferences[u][k] == v) {
+                        indexOfv = k;
+                    }
+                    
+                    if (preferences[u][k] == x) {
+                        indexOfx = k;
+                    }
+                }
+
+                if (indexOfx < indexOfv) {
+                    unHappyFriends++;
+                    break;
+                }
             }
             else {
                 break;
