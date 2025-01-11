@@ -6,8 +6,13 @@ var wateringPlants = function(plants, capacity) {
         steps += i + 1;
 
         if (capacity < plants[i]) {
-            capacity += plants[i]; //go to initial capacity;
+
+            for (let j = 0; j < i + 1; j++) {
+                capacity += plants[j]; //go to initial capacity;
+            }
+            
             steps += i + 1;
+            console.log(steps, capacity);
         }
     }
 
@@ -15,3 +20,7 @@ var wateringPlants = function(plants, capacity) {
 };
 
 console.log(wateringPlants([2,2,3,3], 5));
+
+// console.log(wateringPlants([1,1,1,4,2,3], 4));
+
+// console.log(wateringPlants([7,7,7,7,7,7,7], 8));
