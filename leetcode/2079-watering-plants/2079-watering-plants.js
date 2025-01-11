@@ -6,7 +6,7 @@ var wateringPlants = function(plants, capacity) {
         steps += i + 1;
 
         if (capacity < plants[i]) {
-            capacity += plants[i];
+            capacity += plants[i]; //go to initial capacity;
             steps += i + 1;
         }
     }
