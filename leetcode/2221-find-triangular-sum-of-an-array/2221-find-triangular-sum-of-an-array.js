@@ -1,17 +1,21 @@
 var triangularSum = function(nums) {
-    let newNums = [];
+    let numsLength = nums.length;
     
-    if (nums.length > 1) {
+    for (let i = 0; i < numsLength - 1; i++) {
+
+        let newNums = [];
         
-        for (let i = 0; i < nums.length - 1; i++) {
-            newNums.push((nums[i] + nums[i + 1]) % 10);
+        if (nums.length > 1) {
+            
+            for (let j = 0; j < nums.length - 1; j++) {
+                newNums.push((nums[j] + nums[j + 1]) % 10);
+            }
+
+            nums = newNums;
         }
     }
-    else {
-        return newNums;
-    }
     
-    return newNums;
+    return nums[0];
 };
 
 console.log(triangularSum([1,2,3,4,5]));
