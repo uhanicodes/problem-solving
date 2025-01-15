@@ -6,7 +6,6 @@ var printVertically = function(s) {
         
         if (s[i] !== ' ') {
             word += s[i];
-            console.log(word);
         }
         else {
             stringArray.push(word);
@@ -19,6 +18,20 @@ var printVertically = function(s) {
     }
 
     console.log(word, stringArray);
+
+    let verticalWords = [];
+
+    for (let i = 0; i < stringArray.length; i++) {
+        let word2 = '';
+
+        for (let j = 0; j < stringArray[i].length; j++) {
+            word2 += stringArray[j][i];
+        }
+
+        verticalWords.push(word2);
+    }
+
+    return verticalWords;
 };
 
 console.log(printVertically("HOW ARE YOU"));
