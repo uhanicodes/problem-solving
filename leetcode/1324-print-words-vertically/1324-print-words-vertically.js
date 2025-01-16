@@ -21,7 +21,16 @@ var printVertically = function(s) {
 
     let verticalWords = [];
 
-    for (let i = 0; i < 3; i++) {
+    let maxWordLength = 0;
+    
+    for (let i = 0; i < stringArray.length; i++) {
+    
+        if (stringArray[i].length > maxWordLength) {
+            maxWordLength = stringArray[i].length;
+        }
+    }
+
+    for (let i = 0; i < maxWordLength; i++) {
         let word2 = '';
 
         for (let j = 0; j < stringArray.length; j++) {
