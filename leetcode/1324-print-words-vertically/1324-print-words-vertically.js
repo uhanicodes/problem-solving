@@ -17,17 +17,12 @@ var printVertically = function(s) {
         }
     }
 
-    console.log(word, stringArray);
-
     let verticalWords = [];
 
     let maxWordLength = 0;
     
     for (let i = 0; i < stringArray.length; i++) {
-    
-        if (stringArray[i].length > maxWordLength) {
-            maxWordLength = stringArray[i].length;
-        }
+        maxWordLength = Math.max(maxWordLength, stringArray[i].length);
     }
 
     for (let i = 0; i < maxWordLength; i++) {
@@ -43,9 +38,11 @@ var printVertically = function(s) {
             }
         }
 
-        console.log(i, word2);
-
         verticalWords.push(word2);
+    }
+
+    for (let i = 0; i < verticalWords.length; i++) {
+        verticalWords[i] = verticalWords[i].trimEnd();
     }
 
     return verticalWords;
@@ -56,3 +53,5 @@ console.log(printVertically("HOW ARE YOU"));
 console.log(printVertically("TO BE OR NOT TO BE"));
 
 console.log(printVertically("CONTEST IS COMING"));
+
+console.log(printVertically("HELLO"));
