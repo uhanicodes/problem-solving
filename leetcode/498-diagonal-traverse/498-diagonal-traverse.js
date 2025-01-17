@@ -1,38 +1,47 @@
+// [ 1,  2,  3]
+// [ 4,  5,  6]
+// [ 7,  8,  9]
+// [10, 11, 12]
+// [13, 14, 15]
+
+// [ 1,  2,  3,  4,  5,  6]
+// [ 7,  8,  9, 10, 11, 12]
+// [13, 14, 15, 16, 17, 18]
+
 var findDiagonalOrder = function(mat) {
-    let diagonalElements = [];    
-    
-    for (let i = 0; i < mat.length; i++) {
-        console.log('i =',i);
+    let diagonalElements = [];
+    let m = mat.length;
+    let n = mat[0].length;
 
-        for (let j = 0; j < i+1; j++) {
-            
+    for (let i = 0; i < m + n - 1; i++) {
+
+        let diagonalLength = Math.min((i + 1), Math.min(m, n)) - Math.max(0, i + 1 - Math.max(m, n));
+
+        for (let j = 0; j < diagonalLength; j++) {
+            let x, y;
+
             if (i % 2 == 0) {
-                //console.log(i-j, j);
-                diagonalElements.push(mat[i-j][j]);                
+                x = Math.min(i, m - 1) - j;
+                y = j + Math.max(0, i - (m - 1));
             }
             else {
-                //console.log(j, i-j);
-                diagonalElements.push(mat[j][i-j]);
+                x =  j + Math.max(0, i - (n - 1));
+                y = Math.min(i, n - 1) - j;
             }
-        }
-
-        for (let k = 1; k < mat.length; k++) {
             
-            if (i == 0) {
-                break;
-            }
-            else if (i % 2 == 0) {
-                console.log(k ,(mat.length - k));
-            }
-            else {
-                console.log((mat.length - k), k)
-            }
+            diagonalElements.push(mat[x][y]);
         }
     }
-
-      return diagonalElements;
+    
+    return diagonalElements;
 };
 
-//console.log(findDiagonalOrder([[1, 2, 3], [4, 5, 6], [7, 8, 9]]));
+// console.log(findDiagonalOrder([[1, 2, 3], [4, 5, 6], [7, 8, 9]]));
 
-console.log(findDiagonalOrder([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]]));
+// console.log(findDiagonalOrder([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]]));
+
+console.log(findDiagonalOrder([[1,2],[3,4]]));
+
+console.log(findDiagonalOrder([[3]]));
+
+console.log(findDiagonalOrder([[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]]));
