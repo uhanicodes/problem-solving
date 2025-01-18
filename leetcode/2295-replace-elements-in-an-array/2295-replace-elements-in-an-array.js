@@ -1,10 +1,15 @@
 var arrayChange = function(nums, operations) {
     let operationsMap = new Map(operations);
 
-    for (let i = 0; i < nums.length; i++) {
+    while (operationsMap.size !== 0) {
         
-        if (operationsMap.has(nums[i])) {
-            nums[i] = operationsMap.get(nums[i]);
+        for (let i = 0; i < nums.length; i++) {
+            
+            if (operationsMap.has(nums[i])) {
+                let key = nums[i];
+                nums[i] = operationsMap.get(nums[i]);
+                operationsMap.delete(key);
+            }
         }
     }
 
