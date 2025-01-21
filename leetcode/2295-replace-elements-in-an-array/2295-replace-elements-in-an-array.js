@@ -11,19 +11,15 @@ var arrayChange = function(nums, operations) {
         numsMap.delete(operations[i][0]);
     }
 
-    let numsMap2 = new Map();
+    let arr = Array.from(numsMap);
 
-    for (const entry of numsMap.entries()) {
-        numsMap2.set(entry[1], entry[0]);
-    }
+    arr.sort((a, b) => a[1] - b[1]);
 
-    let arr = [...numsMap2.entries()].sort();
-
-    return arr.map(x => x[1]);
+    return arr.map(x => x[0]);
 };
 
 console.log(arrayChange([1,2,4,6], [[1,3],[4,7],[6,1]])); //output : [3,2,7,1]
 
-// console.log(arrayChange([1,2], [[1,3],[2,1],[3,2]]));
+console.log(arrayChange([1,2], [[1,3],[2,1],[3,2]]));
 
-// console.log(arrayChange([1,2,3,4,5], [[5,7],[4,5],[5,9]]));
+console.log(arrayChange([1,2,3,4,5], [[5,7],[4,5],[5,9]]));
