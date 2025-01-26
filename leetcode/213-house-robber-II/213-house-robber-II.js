@@ -97,4 +97,4 @@ console.log(rob([3,4,5,2,1,6])); // output: 12, expected: 12
 
 console.log(rob([201,4,5,2,1])); // output: 206, expected:206
 
-console.log(rob([1,3,1,3,100])); // output: , expected: 103
+console.log(rob([1,3,1,3,100])); // output:101 , expected: 103
