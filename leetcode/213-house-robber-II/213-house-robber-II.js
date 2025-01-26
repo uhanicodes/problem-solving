@@ -44,7 +44,35 @@ var rob = function(nums) {
             }
         }
         
-        return Math.max(max, evenSum1);
+        max = Math.max(max, evenSum1);
+        
+        let max2 = 0;
+        
+        for (let i = 0; i < nums.length; i++) {
+            let x = nums[i];
+
+            for (let j = i + 3; j < nums.length; j+=2) {
+                x += nums[j];
+            }
+
+            max2 = Math.max(x, max2);
+        }
+        
+        max2 = Math.max(max, max2);
+
+        let max3 = 0;
+
+        for (let i = nums.length - 1; i >= 0; i--) {
+            let y = nums[i];
+
+            for (let j = i - 3; j >= 0; j-=2) {
+                y += nums[j];
+            }
+
+            max3 = Math.max(max3, y);
+        }
+
+        return Math.max(max3, max2);
     }
     else {
         let oddSum = 0;
