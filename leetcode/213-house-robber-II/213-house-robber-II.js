@@ -1,57 +1,11 @@
 var rob = function(nums) {
     let maxAmountOfRobbedMoney = 0;
     
-    if (nums.length > 3 && nums.length % 2 !== 0) {
-        let evenSum = 0;
-        let oddSum = 0;
-        let max = 0;
-        let max1 = 0;
-        
-        for (let i = 0; i < nums.length; i++) {
-
-            if (i % 2 == 0){
-                
-                if (i == nums.length - 1) {
-                    continue;
-                }
-                else {
-                    evenSum += nums[i];
-                }
-            }
-            else if (i % 2 !== 0) {
-                oddSum += nums[i];
-            }
-        }
-        
-        max = Math.max(evenSum, oddSum);
-
-        let evenSum1 = 0;
-        let oddSum1 = 0;
-        
-        for (let i = nums.length - 1; i > -1; i--) {
-
-            if (i % 2 == 0) {
-
-                if (i == 0) {
-                    continue;
-                }
-                else {
-                    evenSum1 += nums[i];
-                }
-            }
-            else if (i % 2 !== 0) {
-                oddSum1 += nums[i];
-            }
-        }
-        
-        max1 = Math.max(evenSum1, oddSum1);
-        
-        return Math.max(max, max1);
-    }
-    else if (nums.length == 1) {
+    if (nums.length == 1) {
         return nums[0];
     }
-    else if (nums.length < 4) {
+    
+    if (nums.length < 4) {
         let max = 0;
 
         for (let i = 0; i < nums.length; i++) {
@@ -63,7 +17,36 @@ var rob = function(nums) {
 
         return max;
     }
-    else if (nums.length > 3 && nums.length % 2 == 0) {
+    
+    if (nums.length % 2 !== 0) {
+        let evenSum = 0;
+        let oddSum = 0;
+        let max = 0;
+        
+        for (let i = 0; i < nums.length - 1; i++) {
+
+            if (i % 2 == 0){
+                evenSum += nums[i];
+            }
+            else if (i % 2 !== 0) {
+                oddSum += nums[i];
+            }
+        }
+        
+        max = Math.max(evenSum, oddSum);
+
+        let evenSum1 = 0;
+        
+        for (let i = nums.length - 1; i > 0; i--) {
+
+            if (i % 2 == 0) {
+                evenSum1 += nums[i];
+            }
+        }
+        
+        return Math.max(max, evenSum1);
+    }
+    else {
         let oddSum = 0;
         let evenSum = 0;
 
