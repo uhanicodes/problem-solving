@@ -3,8 +3,8 @@ var findDuplicate = function(nums) {
     
     for (let i = 0; i < nums.length; i++) {
 
-        if (nums[i] == nums[i + 1]) {
-            return nums[i];
+        if (sortNums[i] == sortNums[i + 1]) {
+            return sortNums[i];
         }
     }
 };
