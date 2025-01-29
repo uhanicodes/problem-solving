@@ -1,10 +1,20 @@
 var findDuplicate = function(nums) {
-    let sortNums = nums.sort((a, b) => a - b);
-    
+    let intCount = new Array(100001);
+
     for (let i = 0; i < nums.length; i++) {
 
-        if (sortNums[i] == sortNums[i + 1]) {
-            return sortNums[i];
+        if (intCount[nums[i]] == null) {
+            intCount[nums[i]] = 1;
+        }
+        else {
+            intCount[nums[i]]++;
+        }
+    }
+
+    for (let i = 0; i < intCount.length; i++) {
+
+        if (intCount[i] > 1) {
+            return i;
         }
     }
 };
