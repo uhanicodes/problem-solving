@@ -1,14 +1,16 @@
 var findDuplicate = function(nums) {
     let x = 0;
 
-    for (let i = x + 1; i < nums.length; i++) {
+    while (x < nums.length -1) {
+        
+        for (let i = x + 1; i < nums.length; i++) {
 
-        if (nums[x] == nums[i]) {
-            return nums[i];
+            if (nums[x] == nums[i]) {
+                return nums[i];
+            }
         }
-        else {
-            x++;
-        }
+
+        x++;
     }
 };
 
