@@ -94,7 +94,26 @@ nums.sort((a, b) => {
 
 console.log(nums);
 
-let students = [];
+let students = [{
+  "name": "Abid Hasan",
+  "class": "2",
+  "roll": "12"
+}, 
+{
+  "name": "Jaid Hasan",
+  "class": "5",
+  "roll": "12"
+},
+{
+  "name": "Shahjahan",
+  "class": "2",
+  "roll": "10"
+},
+{
+  "name": "Abid Hasan",
+  "class": "5",
+  "roll": "9"
+}];
 
 students.sort((a, b) => {
 
@@ -107,10 +126,14 @@ students.sort((a, b) => {
     }
 
     if ((a.class == b.class) && (a.roll > b.roll)) {
-        return 1;
+        return -1;
     }
 
     if (((a.class == b.class) && (a.roll < b.roll))) {
-        return -1;
+        return 1;
     }
+
+    return 0;
 });
+
+console.log(students);
