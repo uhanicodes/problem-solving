@@ -8,20 +8,17 @@ var largestNumber = function(nums) {
     
     numsString.sort((a, b) => {
 
-        if (a.length == b.length) {
+        for (let i = 0; i < Math.min(a.length, b.length); i++) {
 
-            for (let i = 0; i < a.length; i++) {
+            if (a[i] > b[i]) {
+                return -1;
+            }
 
-                if (a[i] > b[i]) {
-                    return -1;
-                }
-
-                if (a[i] < b[i]) {
-                    return 1;
-                }
+            if (a[i] < b[i]) {
+                return 1;
             }
         }
-        
+                
         return 0;
     })
     
@@ -30,4 +27,6 @@ var largestNumber = function(nums) {
 
 console.log(largestNumber([12,11,12]));
 
-console.log(largestNumber([2346, 7892, 2343]));
+console.log(largestNumber([2346, 7892, 2343, 334]));
+
+console.log(largestNumber([3,30,34,5,9]));
