@@ -8,32 +8,40 @@ var largestNumber = function(nums) {
     
     numsString.sort((a, b) => {
 
-        for (let i = 0; i < Math.min(a.length, b.length); i++) {
-
-            if (a[i] > b[i]) {
-                return -1;
-            }
-
-            if (a[i] < b[i]) {
-                return 1;
-            }
-        }
-
-        if ((a.length > b.length) && (a[b.length] > b[b.length -1])) {
+        if ((a + b) > (b + a)) {
             return -1;
         }
 
-        if ((a.length > b.length) && (a[b.length] < b[b.length -1])) {
+        if ((a + b) < (b + a)) {
             return 1;
         }
 
-        if ((a.length < b.length) && (b[a.length] > a[a.length -1])) {
-            return 1;
-        }
+        // for (let i = 0; i < Math.min(a.length, b.length); i++) {
+
+        //     if (a[i] > b[i]) {
+        //         return -1;
+        //     }
+
+        //     if (a[i] < b[i]) {
+        //         return 1;
+        //     }
+        // }
+
+        // if ((a.length > b.length) && (a[b.length] > b[b.length -1])) {
+        //     return -1;
+        // }
+
+        // if ((a.length > b.length) && (a[b.length] < b[b.length -1])) {
+        //     return 1;
+        // }
+
+        // if ((a.length < b.length) && (b[a.length] > a[a.length -1])) {
+        //     return 1;
+        // }
         
-        if  ((a.length < b.length) && (b[a.length] < a[a.length -1])) {
-            return -1;
-        }       
+        // if  ((a.length < b.length) && (b[a.length] < a[a.length -1])) {
+        //     return -1;
+        // }       
         return 0;
     })
     
