@@ -1,20 +1,11 @@
 var groupAnagrams = function(strs) {
-   let carCount = new Map();
+   let sortStrs = [];
 
    for (let i = 0; i < strs.length; i++) {
-
-        for (let j = 0; j < strs[i].length; j++) {
-
-            if (carCount.get(strs[i][j]) == undefined) {
-                carCount.set(strs[i][j], 1);
-            }
-            else {
-                carCount.set(strs[i][j], carCount.get(strs[i][j]) + 1);
-            }
-        }
+        sortStrs[i] = strs[i].split('').sort().join('');
    }
 
-   return carCount;
+   return sortStrs;
 };
 
 console.log(groupAnagrams(["eat","tea","tan","ate","nat","bat"]))
