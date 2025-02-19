@@ -140,14 +140,51 @@ let carCount = (car) => {
 
 console.log(carCount("race a car"));
 
-let reverseString = (string) => {
-    let reverse = '';
+let reverseString = (s) => {
+    console.log(Math.floor(s.length / 2));
 
-    for (let i = string.length - 1; i > -1; i--) {
-        reverse += string[i];
+    for (let i = 0; i < (s.length / 2); i++) {
+        let temp = s[i];
+        s[i] = s[s.length - 1 - i];
+        s[s.length - 1 - i] = temp;
+        console.log(i, (s.length - 1 - i));
     }
 
-    return reverse;
+    return s;
 }
 
-console.log(reverseString('Hello'));
+console.log(reverseString([1, 2, 3, 4]));
+
+let a = 10, b = 34;
+let c = a;
+a = b;
+b = c;
+
+
+console.log(a, b);
+
+reverseInt = (int) => {
+    let reveInt = [];
+
+    while (Math.floor(int / 10) !== 0) {
+        reveInt.push(int % 10);
+        int = Math.floor(int / 10);
+        
+        for (let i = 1; i < 10; i++) {
+
+            if (int == i) {
+                reveInt.push(int);
+            }
+        }
+    }
+
+    let reveNum = 0;
+    
+    for (let i = 0; i < reveInt.length; i++) {
+        reveNum += ((reveInt[i]) * (10^(reveInt.length - 1 - i)));
+    }
+
+    return reveNum;
+}
+
+console.log(reverseInt(2354));
