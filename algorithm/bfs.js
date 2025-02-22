@@ -1,17 +1,19 @@
-let constructAdjacencyMatrix = (n, edges) => {
+let constructAdjacencyList = (n, edges) => {
     let graph = new Array(n);
 
     for (let i = 0; i < graph.length; i++) {
-        graph[i] = new Array(n);
+        graph[i] = [];
     }
 
     for (let i = 0; i < edges.length; i++) {
-        graph[edges[i][0]][edges[i][1]] = 1;
-        graph[edges[i][1]][edges[i][0]] = 1;
+        graph[edges[i][0]].push(edges[i][1]);
+        graph[edges[i][1]].push(edges[i][0]); // for undirected graphs only
     }
 
-    console.log(graph);
-}
+    // console.log(graph);
+
+    return graph;
+};
 
 class Queue {
     
@@ -59,7 +61,7 @@ class Queue {
 
 let bfs = (n, edges) => {
 
-    let graph = constructAdjacencyMatrix(n, edges);
+    let graph = constructAdjacencyList(n, edges);
 
     console.log(graph);
 
