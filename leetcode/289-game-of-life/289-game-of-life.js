@@ -17,7 +17,8 @@ var gameOfLife = function(board) {
             
             for (let k = 0; k < 8; k++) {
                 
-                if ((i + dx[k]) == -1 || (i + dx[k]) == board[i].length || (j + dy[k]) == -1 || (j + dy[k]) == board[i].length) {
+                if ((i + dx[k]) == -1 || (i + dx[k]) == board.length || 
+                    (j + dy[k]) == -1 || (j + dy[k]) == board[i].length) {
                     continue;
                 }
                 
