@@ -2,8 +2,12 @@ const dx = [-1, -1, -1,  0, 0,  1, 1, 1];
 const dy = [-1,  0,  1, -1, 1, -1, 0, 1];
 
 var gameOfLife = function(board) {
-    let listOfNeighbors = [];
+    let listOfNeighbors = new Array(board.length);
     let currentState = [];
+
+    for (let i = 0; i < listOfNeighbors.length; i++) {
+        listOfNeighbors[i] = [];
+    }
 
     for (let i = 0; i < board.length; i++) {
 
@@ -17,7 +21,7 @@ var gameOfLife = function(board) {
                     continue;
                 }
                 
-                listOfNeighbors.push(board[i + dx[k]][j + dy[k]]);
+                listOfNeighbors[i].push(board[i + dx[k]][j + dy[k]]);
             }
         }
     }
