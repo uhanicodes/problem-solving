@@ -44,6 +44,9 @@ var gameOfLife = function(board) {
                     if (sum == 3) {
                         newBoard[i][j] = 1;
                     }
+                    else {
+                        newBoard[i][j] = board[i][j];
+                    }
                 }
             }
     }
