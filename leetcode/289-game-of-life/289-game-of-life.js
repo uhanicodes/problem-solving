@@ -50,7 +50,13 @@ var gameOfLife = function(board) {
                 }
             }
     }
-   return newBoard;
+
+    for (let i = 0; i < newBoard.length; i++) {
+
+        for (let j = 0; j < newBoard[i].length; j++) {
+            board[i][j] = newBoard[i][j];
+        }
+    }
 };
 
 console.log(gameOfLife([[0,1,0],[0,0,1],[1,1,1],[0,0,0]]));
