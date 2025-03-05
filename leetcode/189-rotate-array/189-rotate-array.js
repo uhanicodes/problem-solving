@@ -1,4 +1,8 @@
 var rotate = function(nums, k) {
+    if (k > nums.length) {
+        return;
+    }
+
     let x = [];
     let y = [];
 
