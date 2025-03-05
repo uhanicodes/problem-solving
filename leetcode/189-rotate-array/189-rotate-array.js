@@ -1,10 +1,23 @@
 var rotate = function(nums, k) {
-    let x = 0;
+    let x = [];
+    let y = [];
+
+    for (let i = 0; i < nums.length - k; i++) {
+        x.push(nums[i]);
+        // console.log(x);
+    }
+
+    for (let i = nums.length - k; i < nums.length; i++) {
+        y.push(nums[i]);
+        // console.log(y);
+    }
 
     for (let i = 0; i < k; i++) {
-        x = nums[nums.length - 1];
-        nums.splice(nums.length - 1, 1);
-        nums.splice(0, 0, x);
+        nums[i] = y[i];
+    }
+
+    for (let i = k; i <nums.length; i++) {
+        nums[i] = x[i - k];
     }
 }
 
