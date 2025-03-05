@@ -95,4 +95,51 @@ let bfs = (n, edges) => {
     }
 }
 
-bfs(6, [[0, 1], [0, 2], [0, 3], [1, 4], [2, 4], [2, 5], [2, 3]]);
+let constructAdjacencyMatrix = (n, edges) => {
+    let graph = new Array(n);
+
+    for (let i = 0; i < graph.length; i++) {
+        graph[i] = new Array(n);
+    }
+
+    for (let i = 0; i < edges.length; i++) {
+        graph[edges[i][0]][edges[i][1]] = 1;
+        graph[edges[i][1]][edges[i][0]] = 1;
+    }
+
+    return graph;
+}
+
+let bfs2 = (n, edges) => {
+    let graph = constructAdjacencyMatrix(n, edges);
+    let visited = new Array(n);
+    
+    for (i = 0; i < n; i++) {
+        visited[i] = false;
+    }
+
+    let queue = new Queue();
+
+    queue.enqueue(0);
+
+    while (!queue.isEmpty()) {
+        let u = queue.dequeue();
+
+        if (visited[u] == false) {
+            console.log(u);
+            visited[u] = true;
+        }
+
+        let adj = graph[u];
+
+        for (let i = 0; i < adj.length; i++) {
+            let v = adj[i];
+
+            if ((v == 1) && !visited[i]) {
+                queue.enqueue(i);
+            }
+        }
+    }
+}
+
+bfs2(6, [[0, 1], [0, 2], [0, 3], [1, 4], [2, 4], [2, 5], [2, 3]]);
