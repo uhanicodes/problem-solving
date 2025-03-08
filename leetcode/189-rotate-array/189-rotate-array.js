@@ -70,19 +70,15 @@ class Queue {
 }
 
 var rotate = function(nums, k) {
-    k = k % nums.length;
+    // k = k % nums.length;
     let reverseNums = new Queue();
 
     for (let i = 0; i < nums.length; i++) {
         reverseNums.enqueue(nums[nums.length -1 - i]);
     }
 
-    let x = 0;
-
     for (let i = 0; i < k; i++) {
-        x = reverseNums[0];
-        reverseNums.dequeue();
-        reverseNums.enqueue(x);
+        reverseNums.enqueue(reverseNums.dequeue());
     }
 
     return reverseNums;
