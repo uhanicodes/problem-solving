@@ -26,52 +26,57 @@
 // }
 
 class Queue {
-
-    constructor() {
-        this.front = this.rear = -1;
-        this.array = new Array(10);
+    
+    constructor () {
+        this.array = [];
+        this.start = this.end = -1;
     }
 
     enqueue(v) {
 
-        if (this.rear == this.array.length - 1) {
-            return;
+        if (this.start == -1 && this.end == -1) {
+            this.start = 0;
         }
 
-        if (this.front == -1 && this.rear == -1) {
-            this.front = 0;
-        }        
-        
-        this.rear++;
-        this.array[this.rear] = v;
+        this.end++;
+        this.array[this.end] = v;
     }
 
     dequeue() {
+        let firstValue = 0;
 
-        if (this.front == -1 && this.rear == -1) {
-            return;
+        if (this.start !== -1 && this.end !== -1) {
+            firstValue = this.array[this.start];
+            this.start++;
         }
 
-        let frontValue = this.array[this.front];
-        this.front++;
+        if (this.start - 1 == this.end) {
+            this.start = -1;
+            this.end = -1;
+        }
+
+        return firstValue;
+    }
+
+    isEmpty() {
         
-        if (this.front - 1 == this.rear) {
-            this.front = this.rear = -1;
+        if (this.start == -1 && this.end == -1) {
+            return true;
         }
-
-        return frontValue;
+        else {
+            return false;
+        }
     }
 }
 
 var rotate = function(nums, k) {
     k = k % nums.length;
-    let reverseNums = [];
+    let reverseNums = new Queue();
 
     for (let i = 0; i < nums.length; i++) {
-        reverseNums[i] = nums[nums.length -1 - i];
+        reverseNums.enqueue(nums[nums.length -1 - i]);
     }
 
-    reverseNums = new Queue();
     let x = 0;
 
     for (let i = 0; i < k; i++) {
@@ -79,6 +84,7 @@ var rotate = function(nums, k) {
         reverseNums.dequeue();
         reverseNums.enqueue(x);
     }
+
     return reverseNums;
 }
 console.log(rotate([1,2,3,4,5,6,7], 3));
