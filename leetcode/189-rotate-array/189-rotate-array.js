@@ -71,22 +71,26 @@ class Queue {
 
 var rotate = function(nums, k) {
     // k = k % nums.length;
-    let reverseNums = new Queue();
+    let numsQueue = new Queue();
 
     for (let i = 0; i < nums.length; i++) {
-        reverseNums.enqueue(nums[nums.length -1 - i]);
+        numsQueue.enqueue(nums[i]);
+    }
+    
+    for (let i = 0; i < k; i++) {
+        numsQueue.enqueue(numsQueue.dequeue());
     }
 
     for (let i = 0; i < k; i++) {
-        reverseNums.enqueue(reverseNums.dequeue());
+        numsQueue.dequeue();
     }
 
-    return reverseNums;
+    return numsQueue;
 }
 console.log(rotate([1,2,3,4,5,6,7], 3));
-console.log(rotate([-1,-100,3,99], 2));
-console.log(rotate([1,2], 3));
-console.log(rotate([1,2,3],50));
+// console.log(rotate([-1,-100,3,99], 2));
+// console.log(rotate([1,2], 3));
+// console.log(rotate([1,2,3],50));
 
 // nums = [1,2,3,4,5,6,7], k = 3
 // output: [5,6,7,1,2,3,4]
