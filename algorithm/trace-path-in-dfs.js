@@ -62,7 +62,7 @@ let dfs = (n, edges) => {
         let u = stack.pop();
 
         if (visited[u] == false) {
-            console.log(u);
+            // console.log(u);
             visited[u] = true;
             path.push(u);
         }
@@ -80,5 +80,5 @@ let dfs = (n, edges) => {
     return path;
 }
 
-// dfs(5, [[0, 1], [0, 2], [1, 2], [2, 3], [2, 4], [3, 4]]);
-dfs(6, [[0, 1], [0, 2], [0, 3], [1, 4], [2, 4], [2, 5], [2, 3]]);
+// console.log(dfs(5, [[0, 1], [0, 2], [1, 2], [2, 3], [2, 4], [3, 4]]));
+console.log(dfs(6, [[0, 1], [0, 2], [0, 3], [1, 4], [2, 4], [2, 5], [2, 3]]));
