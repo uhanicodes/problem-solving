@@ -1,6 +1,3 @@
-const dx = [0, 1, -1, 0];
-const dy = [1, 0, 0, -1];
-
 class Queue2 {
     
     constructor () {
@@ -92,16 +89,9 @@ var countServers = function(grid) {
 
                 servers++;
 
-                for (let k = 1; k < grid.length; k++) {
-                    let newX = u.x + k;
+                for (let k = 0; k < grid.length; k++) {
+                    let newX = k; 
                     let newY = u.y;
-
-                    // if (newX == -1 || newY == -1 || newX == grid.length || newY == grid[i].length) {
-                    //     // cell may go outside the max index
-                    //     continue;
-                    // }
-
-                    // console.log("k:", k, newX, newY);
 
                     if (grid[newX][newY] == 1 && !visited[newX][newY]) {
                         queue.enqueue({
@@ -113,14 +103,7 @@ var countServers = function(grid) {
 
                 for (let k = 0; k < grid[i].length; k++) {
                     let newX = u.x;
-                    let newY = u.y + k;
-
-                    // if (newX == -1 || newY == -1 || newX == grid.length || newY == grid[i].length) {
-                    //     // cell may go outside the max index
-                    //     continue;
-                    // }
-
-                    // console.log("k:", k, newX, newY);
+                    let newY = k;
 
                     if (grid[newX][newY] == 1 && !visited[newX][newY]) {
                         queue.enqueue({
@@ -130,6 +113,7 @@ var countServers = function(grid) {
                     }
                 }
             }
+
             if (servers > 1) {                
                 totalServers += servers;
             }
