@@ -78,7 +78,8 @@ var numEnclaves = function(grid) {
                 y: j
             })
 
-            let enclave = 0;
+            let enclave = true;
+            let enclaves = [];
         
             // let path = [];
             while (!queue.isEmpty()) {
@@ -90,10 +91,13 @@ var numEnclaves = function(grid) {
                 }
 
                 visited[u.x][u.y] = true;
+                enclaves.push(grid[u.x][u.y]);
 
                 if (u.x == 0 || u.x == grid.length - 1 || u.y == 0 || u.y == grid[i].length - 1) {
-                    enclave++;
+                    enclave = false;
                 }
+
+                
 
                 // console.log("u:", u);
 
@@ -117,7 +121,12 @@ var numEnclaves = function(grid) {
                 }
             }
 
-            totalEnclaves += enclave;
+            if (enclave == true) {
+
+                for (let k = 0; k < enclaves.length; k++) {
+                    totalEnclaves += enclaves[k];
+                }
+            }
         }
     }
 
@@ -126,3 +135,5 @@ var numEnclaves = function(grid) {
 
 
 console.log(numEnclaves([[0,0,0,0],[1,0,1,0],[0,1,1,0],[0,0,0,0]]));
+
+console.log(numEnclaves([[0,1,1,0],[0,0,1,0],[0,0,1,0],[0,0,0,0]]));
