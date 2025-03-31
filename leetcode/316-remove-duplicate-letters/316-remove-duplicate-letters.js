@@ -15,9 +15,11 @@ var removeDuplicateLetters = function(s) {
         if (match == false) {
             str.push(s[i]);
         }
+
+        match = false;
     }
 
-    str.sort((a, b) => b - a);
+    str.sort((a, b) => a - b);
 
     let str2 = "";
 
@@ -28,4 +30,5 @@ var removeDuplicateLetters = function(s) {
     return str2;
 };
 
-console.log(removeDuplicateLetters("bcabc"));
+// console.log(removeDuplicateLetters("bcabc"));
+console.log(removeDuplicateLetters("cbacdcbc"));
