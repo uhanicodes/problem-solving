@@ -38,19 +38,26 @@ var scoreOfParentheses = function(s) {
         }
 
         if (s[i] == ')') {
+            let A = 0;
 
             if (s[i - 1] == '(') {
                 score.pop();
                 score.push(1);
             }
-            else {
+            else {  
                 while (score.pop() !== 0) {
-                    score.push(score.pop() + score.pop());
+                    A += score.pop()
+                }
+
+                if (score.pop() == 0) {
+                    score.push(2 * A);
                 }
             }
         }        
     }
-    return score;
+
+    let x = score.pop();
+    return x;
 };
 
 console.log(scoreOfParentheses("(())"));
