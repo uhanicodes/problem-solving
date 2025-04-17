@@ -45,7 +45,7 @@ var scoreOfParentheses = function(s) {
                 score.push(1);
             }
             else {  
-                while (score.pop() !== 0) {
+                while (score.peek() !== 0) {
                     A += score.pop()
                 }
 
@@ -56,8 +56,13 @@ var scoreOfParentheses = function(s) {
         }        
     }
 
-    let x = score.pop();
-    return x;
+    let sum = 0;
+
+    while(!score.isEmpty()) {
+        sum += score.pop();
+    }
+
+    return sum;
 };
 
 console.log(scoreOfParentheses("(())"));
